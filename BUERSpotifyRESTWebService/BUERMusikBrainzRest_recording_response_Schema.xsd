@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://musicbrainz.org/ns/mmd-2.0#" targetNamespace="http://musicbrainz.org/ns/mmd-2.0#"
+            elementFormDefault="qualified">
+  <xsd:element name="metadata">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="recording-list">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="recording">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="title" type="xsd:string"/>
+                    <xsd:element name="length" type="xsd:integer"/>
+                    <xsd:element name="artist-credit">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="name-credit">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="artist">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="name" type="xsd:string"/>
+                                      <xsd:element name="sort-name" type="xsd:string"/>
+                                      <xsd:element name="alias-list">
+                                        <xsd:complexType>
+                                          <xsd:sequence>
+                                            <xsd:element name="alias">
+                                              <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                  <xsd:extension base="xsd:string">
+                                                    <xsd:attribute name="sort-name" type="xsd:string"/>
+                                                    <xsd:attribute name="type" type="xsd:string"/>
+                                                  </xsd:extension>
+                                                </xsd:simpleContent>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string"/>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="release-list">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="release">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="title" type="xsd:string"/>
+                                <xsd:element name="status" type="xsd:string"/>
+                                <xsd:element name="release-group">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="primary-type" type="xsd:string"/>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string"/>
+                                    <xsd:attribute name="type" type="xsd:string"/>
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="date" type="xsd:integer"/>
+                                <xsd:element name="country" type="xsd:string"/>
+                                <xsd:element name="release-event-list">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="release-event">
+                                        <xsd:complexType>
+                                          <xsd:sequence>
+                                            <xsd:element name="date" type="xsd:integer"/>
+                                            <xsd:element name="area">
+                                              <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element name="name" type="xsd:string"/>
+                                                  <xsd:element name="sort-name" type="xsd:string"/>
+                                                  <xsd:element name="iso-3166-1-code-list">
+                                                    <xsd:complexType>
+                                                      <xsd:sequence>
+                                                        <xsd:element name="iso-3166-1-code" type="xsd:string"/>
+                                                      </xsd:sequence>
+                                                    </xsd:complexType>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                                <xsd:attribute name="id" type="xsd:string"/>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="medium-list">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="track-count" type="xsd:integer"/>
+                                      <xsd:element name="medium">
+                                        <xsd:complexType>
+                                          <xsd:sequence>
+                                            <xsd:element name="position" type="xsd:integer"/>
+                                            <xsd:element name="format" type="xsd:string"/>
+                                            <xsd:element name="track-list">
+                                              <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element name="track">
+                                                    <xsd:complexType>
+                                                      <xsd:sequence>
+                                                        <xsd:element name="number" type="xsd:integer"/>
+                                                        <xsd:element name="title" type="xsd:string"/>
+                                                        <xsd:element name="length" type="xsd:integer"/>
+                                                      </xsd:sequence>
+                                                      <xsd:attribute name="id" type="xsd:string"/>
+                                                    </xsd:complexType>
+                                                  </xsd:element>
+                                                </xsd:sequence>
+                                                <xsd:attribute name="count" type="xsd:integer"/>
+                                                <xsd:attribute name="offset" type="xsd:integer"/>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                              <xsd:attribute name="id" type="xsd:string"/>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="id" type="xsd:string"/>
+                  <xsd:attribute name="score" type="xsd:integer"/>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="count" type="xsd:integer"/>
+            <xsd:attribute name="offset" type="xsd:integer"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="created" type="xsd:dateTime"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="searchMusicBrainzPageDef"
+                Package="de.hahn.blog.usingexternalrest.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="recording_query" IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="recording.result" DataControl="BUERMusikBrainzRest" RangeSize="25"
+                    BeanClass="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_metadata" id="recordingIterator"/>
+    <accessorIterator MasterBinding="recordingIterator" Binds="recording_list" RangeSize="25" DataControl="BUERMusikBrainzRest"
+                      BeanClass="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_recording_list"
+                      id="recording_listIterator"/>
+    <accessorIterator MasterBinding="recording_listIterator" Binds="recording" RangeSize="25" DataControl="BUERMusikBrainzRest"
+                      BeanClass="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_recording" id="recordingIterator1"/>
+    <accessorIterator MasterBinding="recordingIterator1" Binds="artist_credit" RangeSize="25" DataControl="BUERMusikBrainzRest"
+                      BeanClass="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_artist_credit"
+                      id="artist_creditIterator"/>
+    <accessorIterator MasterBinding="artist_creditIterator" Binds="name_credit" RangeSize="25" DataControl="BUERMusikBrainzRest"
+                      BeanClass="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_name_credit" id="name_creditIterator"/>
+    <accessorIterator MasterBinding="name_creditIterator" Binds="artist" RangeSize="25" DataControl="BUERMusikBrainzRest"
+                      BeanClass="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_artist" id="artistIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="recording" RequiresUpdateModel="true" Action="invokeMethod" MethodName="recording" IsViewObjectMethod="false"
+                  DataControl="BUERMusikBrainzRest" InstanceName="bindings.recording.dataControl"
+                  ReturnName="data.BUERMusikBrainzRest.methodResults.recording_recording_dataControl_recording_result">
+      <NamedData NDName="query" NDType="java.lang.String" NDValue="${bindings.recording_query}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="query">
+      <AttrNames>
+        <Item Value="recording_query"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="recordingIterator1" id="recording1">
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_recording" Name="recording10">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="score"/>
+          <Item Value="title"/>
+          <Item Value="length"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="artist_credit"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_artist_credit" Name="recording11">
+        <Accessors>
+          <Item Value="name_credit"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_name_credit" Name="recording12">
+        <Accessors>
+          <Item Value="artist"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest.recording_Data_artist" Name="recording13">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="artistIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="artistIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="artistIterator" id="sort_name">
+      <AttrNames>
+        <Item Value="sort_name"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

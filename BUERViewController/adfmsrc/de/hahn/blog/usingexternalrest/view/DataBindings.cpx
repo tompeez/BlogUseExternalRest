@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings" SeparateXMLFiles="false"
+             Package="de.hahn.blog.usingexternalrest.view"
+             ClientType="Generic">
+  <pageMap>
+    <page path="/searchMusicBrainz.jsf" usageId="de_hahn_blog_usingexternalrest_view_searchMusicBrainzPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="de_hahn_blog_usingexternalrest_view_searchMusicBrainzPageDef" path="de.hahn.blog.usingexternalrest.view.pageDefs.searchMusicBrainzPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="BUERMusikBrainzRest" path="de.hahn.blog.usingexternalrest.spotifyrestwebservice.BUERMusikBrainzRest"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="searchMusicBrainz.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="110px" id="gr1">
+                    <af:gridCell width="100px" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.query.inputValue}" label="#{bindings.query.hints.label}"
+                                          required="#{bindings.query.hints.mandatory}" columns="#{bindings.query.hints.displayWidth}"
+                                          maximumLength="#{bindings.query.hints.precision}" shortDesc="#{bindings.query.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.query.validator}"/>
+                            </af:inputText>
+                            <af:button actionListener="#{bindings.recording.execute}" text="recording" disabled="#{!bindings.recording.enabled}" id="b1"/>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow id="gr3">
+                    <af:gridCell id="gc3">
+                        <af:panelGroupLayout layout="vertical" id="pgl2">
+                            <af:panelHeader text="recording" id="ph1">
+                                <af:table id="md1" rows="#{bindings.recording1.rangeSize}" fetchSize="#{bindings.recording1.rangeSize}"
+                                          emptyText="#{bindings.recording1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                                          value="#{bindings.recording1.collectionModel}" rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.recording1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.recording1.collectionModel.makeCurrent}" rowSelection="single">
+                                    <af:column headerText="#{bindings.recording1.hints.id.label}" sortProperty="#{bindings.recording1.hints.id.name}"
+                                               sortable="false" id="c1">
+                                        <af:outputText value="#{row.id}" shortDesc="#{bindings.recording1.hints.id.tooltip}" id="ot1"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.recording1.hints.score.label}" sortProperty="#{bindings.recording1.hints.score.name}"
+                                               sortable="false" id="c2">
+                                        <af:outputText value="#{row.score}" shortDesc="#{bindings.recording1.hints.score.tooltip}" id="ot2">
+                                            <af:convertNumber groupingUsed="false" pattern="#{bindings.recording1.hints.score.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.recording1.hints.title.label}" sortProperty="#{bindings.recording1.hints.title.name}"
+                                               sortable="false" id="c3">
+                                        <af:outputText value="#{row.title}" shortDesc="#{bindings.recording1.hints.title.tooltip}" id="ot3"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.recording1.hints.length.label}" sortProperty="#{bindings.recording1.hints.length.name}"
+                                               sortable="false" id="c4">
+                                        <af:outputText value="#{row.length}" shortDesc="#{bindings.recording1.hints.length.tooltip}" id="ot4">
+                                            <af:convertNumber groupingUsed="false" pattern="#{bindings.recording1.hints.length.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
+                            <af:panelHeader text="artist_credit" id="ph2">
+                                <af:panelFormLayout partialTriggers="md1" id="pfl2">
+                                    <af:panelFormLayout id="pfl3">
+                                        <af:inputText value="#{bindings.id.inputValue}" label="#{bindings.id.hints.label}"
+                                                      required="#{bindings.id.hints.mandatory}" readOnly="true" columns="#{bindings.id.hints.displayWidth}"
+                                                      maximumLength="#{bindings.id.hints.precision}" shortDesc="#{bindings.id.hints.tooltip}" id="it2">
+                                            <f:validator binding="#{bindings.id.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.name.inputValue}" label="#{bindings.name.hints.label}"
+                                                      required="#{bindings.name.hints.mandatory}" readOnly="true" columns="#{bindings.name.hints.displayWidth}"
+                                                      maximumLength="#{bindings.name.hints.precision}" shortDesc="#{bindings.name.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.name.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.sort_name.inputValue}" label="#{bindings.sort_name.hints.label}"
+                                                      required="#{bindings.sort_name.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.sort_name.hints.displayWidth}" maximumLength="#{bindings.sort_name.hints.precision}"
+                                                      shortDesc="#{bindings.sort_name.hints.tooltip}" id="it4">
+                                            <f:validator binding="#{bindings.sort_name.validator}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </af:panelFormLayout>
+                            </af:panelHeader>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
