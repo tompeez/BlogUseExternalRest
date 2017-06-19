@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.16.48" id="DataControls"
+                    Package="de.hahn.blog.usingexternalrest.musicbrainz">
+  <AdapterDataControl id="MusicBrainz" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.rest.RestURLDCDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz"
+                      BeanClass="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <Definitions>
+        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/xml" ConnectionName="MusikBrainz"
+                    Source="/ws/2/recording?query=##query##" HttpMethod="GET" id="recording" MethodRef="XSD"
+                    SchemaLocation="MusicBrainz_recording_response_Schema.xsd" ensureKeyAttribute="true"
+                    dcStructureVersion="2" RootElement="metadata">
+          <Parameters>
+            <Parameter Name="query" Value='""'/>
+          </Parameters>
+        </Definition>
+      </Definitions>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>
