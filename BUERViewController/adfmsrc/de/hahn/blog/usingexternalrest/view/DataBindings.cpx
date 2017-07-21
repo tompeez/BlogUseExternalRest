@@ -9,6 +9,7 @@
           path="de.hahn.blog.usingexternalrest.view.pageDefs.MunicBrainzPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="MusicBrainzJSONDC" path="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC"/>
     <dc id="MusicBrainz" path="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz"/>
   </dataControlUsages>
 </Application>

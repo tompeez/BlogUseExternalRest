@@ -6,57 +6,35 @@
     <variableIterator id="variables">
       <variable Type="java.lang.String" Name="recording_query" IsQueriable="false"/>
     </variableIterator>
-    <methodIterator Binds="recording.result" DataControl="MusicBrainz" RangeSize="25"
-                    BeanClass="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_metadata"
+    <methodIterator Binds="recording.result" DataControl="MusicBrainzJSONDC" RangeSize="25"
+                    BeanClass="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn"
                     id="recordingIterator" RefreshCondition="#{not empty bindings.query.inputValue}"/>
-    <accessorIterator MasterBinding="recordingIterator" Binds="recording_list" RangeSize="25" DataControl="MusicBrainz"
-                      BeanClass="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_recording_list"
-                      id="recording_listIterator" RefreshCondition="#{not empty bindings.query.inputValue}"/>
-    <accessorIterator MasterBinding="recording_listIterator" Binds="recording" RangeSize="25" DataControl="MusicBrainz"
-                      BeanClass="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_recording"
-                      id="recordingIterator1" RefreshCondition="#{not empty bindings.query.inputValue}"/>
+    <accessorIterator MasterBinding="recordingIterator" Binds="recordings" RangeSize="25"
+                      DataControl="MusicBrainzJSONDC"
+                      BeanClass="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn_recordings"
+                      id="recordingsIterator" RefreshCondition="#{not empty bindings.query.inputValue}"/>
   </executables>
   <bindings>
-    <methodAction id="recording" RequiresUpdateModel="true" Action="invokeMethod" MethodName="recording"
-                  IsViewObjectMethod="false" DataControl="MusicBrainz" InstanceName="bindings.recording.dataControl"
-                  ReturnName="data.MusicBrainz.methodResults.recording_recording_dataControl_recording_result">
-      <NamedData NDName="query" NDType="java.lang.String" NDValue="${bindings.recording_query}"/>
-    </methodAction>
     <attributeValues IterBinding="variables" id="query">
       <AttrNames>
         <Item Value="recording_query"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="recordingIterator1" id="recording1">
-      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_recording"
-                      Name="recording10">
+    <methodAction id="recording" RequiresUpdateModel="true" Action="invokeMethod" MethodName="recording"
+                  IsViewObjectMethod="false" DataControl="MusicBrainzJSONDC"
+                  InstanceName="bindings.recording.dataControl"
+                  ReturnName="data.MusicBrainzJSONDC.methodResults.recording_recording_dataControl_recording_result">
+      <NamedData NDName="query" NDValue="#{bindings.query.inputValue}" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="recordingsIterator" id="recordings">
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn_recordings"
+                      Name="recordings0">
         <AttrNames>
-          <Item Value="id"/>
           <Item Value="score"/>
-          <Item Value="title"/>
           <Item Value="length"/>
-        </AttrNames>
-        <Accessors>
-          <Item Value="artist_credit"/>
-        </Accessors>
-      </nodeDefinition>
-      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_artist_credit"
-                      Name="recording11">
-        <Accessors>
-          <Item Value="name_credit"/>
-        </Accessors>
-      </nodeDefinition>
-      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_name_credit"
-                      Name="recording12">
-        <Accessors>
-          <Item Value="artist"/>
-        </Accessors>
-      </nodeDefinition>
-      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz.recording_Data_artist"
-                      Name="recording13">
-        <AttrNames>
           <Item Value="id"/>
-          <Item Value="name"/>
+          <Item Value="video"/>
+          <Item Value="title"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

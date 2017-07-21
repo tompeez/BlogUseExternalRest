@@ -1,0 +1,319 @@
+{
+  "$schema" : "http://www.oracle.com/schema",
+  "id" : "http://www.oracle.com/schema",
+  "type" : "object",
+  "properties" : {
+    "offset" : {
+      "type" : "number"
+    },
+    "recordings" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "score" : {
+            "type" : "string"
+          },
+          "length" : {
+            "type" : "number"
+          },
+          "artist-credit" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "artist" : {
+                  "type" : "object",
+                  "properties" : {
+                    "aliases" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "begin-date" : {
+                            "type" : "string"
+                          },
+                          "end-date" : {
+                            "type" : "string"
+                          },
+                          "name" : {
+                            "type" : "string"
+                          },
+                          "sort-name" : {
+                            "type" : "string"
+                          },
+                          "locale" : {
+                            "type" : "string"
+                          },
+                          "type" : {
+                            "type" : "string"
+                          },
+                          "primary" : {
+                            "type" : "string"
+                          }
+                        }
+                      },
+                      "required" : [ "begin-date", "end-date", "name", "sort-name", "locale", "type", "primary" ]
+                    },
+                    "name" : {
+                      "type" : "string"
+                    },
+                    "disambiguation" : {
+                      "type" : "string"
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "sort-name" : {
+                      "type" : "string"
+                    }
+                  }
+                },
+                "name" : {
+                  "type" : "string"
+                },
+                "joinphrase" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "required" : [ "artist" ]
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "video" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "releases" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "release-group" : {
+                  "type" : "object",
+                  "properties" : {
+                    "primary-type" : {
+                      "type" : "string"
+                    },
+                    "secondary-types" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "string"
+                      }
+                    },
+                    "id" : {
+                      "type" : "string"
+                    }
+                  }
+                },
+                "date" : {
+                  "type" : "string"
+                },
+                "country" : {
+                  "type" : "string"
+                },
+                "release-events" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "date" : {
+                        "type" : "string"
+                      },
+                      "area" : {
+                        "type" : "object",
+                        "properties" : {
+                          "iso-3166-1-codes" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "string"
+                            }
+                          },
+                          "name" : {
+                            "type" : "string"
+                          },
+                          "id" : {
+                            "type" : "string"
+                          },
+                          "sort-name" : {
+                            "type" : "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "artist-credit" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "artist" : {
+                        "type" : "object",
+                        "properties" : {
+                          "name" : {
+                            "type" : "string"
+                          },
+                          "id" : {
+                            "type" : "string"
+                          },
+                          "sort-name" : {
+                            "type" : "string"
+                          }
+                        }
+                      },
+                      "name" : {
+                        "type" : "string"
+                      }
+                    }
+                  },
+                  "required" : [ "artist" ]
+                },
+                "id" : {
+                  "type" : "string"
+                },
+                "media" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "format" : {
+                        "type" : "string"
+                      },
+                      "position" : {
+                        "type" : "number"
+                      },
+                      "track-offset" : {
+                        "type" : "number"
+                      },
+                      "track" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "object",
+                          "properties" : {
+                            "number" : {
+                              "type" : "string"
+                            },
+                            "length" : {
+                              "type" : "number"
+                            },
+                            "artist-credit" : {
+                              "type" : "array",
+                              "items" : {
+                                "type" : "object",
+                                "properties" : {
+                                  "artist" : {
+                                    "type" : "object",
+                                    "properties" : {
+                                      "aliases" : {
+                                        "type" : "array",
+                                        "items" : {
+                                          "type" : "object",
+                                          "properties" : {
+                                            "begin-date" : {
+                                              "type" : "string"
+                                            },
+                                            "end-date" : {
+                                              "type" : "string"
+                                            },
+                                            "name" : {
+                                              "type" : "string"
+                                            },
+                                            "sort-name" : {
+                                              "type" : "string"
+                                            },
+                                            "locale" : {
+                                              "type" : "string"
+                                            },
+                                            "type" : {
+                                              "type" : "string"
+                                            },
+                                            "primary" : {
+                                              "type" : "string"
+                                            }
+                                          }
+                                        },
+                                        "required" : [ "begin-date", "end-date", "name", "sort-name", "locale", "type", "primary" ]
+                                      },
+                                      "name" : {
+                                        "type" : "string"
+                                      },
+                                      "id" : {
+                                        "type" : "string"
+                                      },
+                                      "sort-name" : {
+                                        "type" : "string"
+                                      }
+                                    }
+                                  },
+                                  "joinphrase" : {
+                                    "type" : "string"
+                                  },
+                                  "name" : {
+                                    "type" : "string"
+                                  }
+                                }
+                              },
+                              "required" : [ "artist" ]
+                            },
+                            "id" : {
+                              "type" : "string"
+                            },
+                            "title" : {
+                              "type" : "string"
+                            }
+                          }
+                        },
+                        "required" : [ "number", "length", "id", "title" ]
+                      },
+                      "track-count" : {
+                        "type" : "number"
+                      }
+                    }
+                  },
+                  "required" : [ "format", "position", "track-offset", "track", "track-count" ]
+                },
+                "title" : {
+                  "type" : "string"
+                },
+                "track-count" : {
+                  "type" : "number"
+                },
+                "status" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "required" : [ "release-group", "id", "media", "title", "track-count", "status" ]
+          },
+          "tags" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "count" : {
+                  "type" : "number"
+                },
+                "name" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "required" : [ "count", "name" ]
+          }
+        }
+      },
+      "required" : [ "score", "artist-credit", "id", "video", "title" ]
+    },
+    "created" : {
+      "type" : "string"
+    },
+    "count" : {
+      "type" : "number"
+    }
+  }
+}
