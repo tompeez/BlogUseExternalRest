@@ -27,14 +27,30 @@
       <NamedData NDName="query" NDValue="#{bindings.query.inputValue}" NDType="java.lang.String"/>
     </methodAction>
     <tree IterBinding="recordingsIterator" id="recordings">
-      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn_recordings"
-                      Name="recordings0">
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn_recordings" Name="recordings0">
         <AttrNames>
+          <Item Value="id"/>
+          <Item Value="title"/>
           <Item Value="score"/>
           <Item Value="length"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="artist_credit"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn_recordings_artist_credit" Name="recordings1">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="joinphrase"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="artist"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC.recording_Data_methodReturn_recordings_artist_credit_artist" Name="recordings2">
+        <AttrNames>
+          <Item Value="name"/>
           <Item Value="id"/>
-          <Item Value="video"/>
-          <Item Value="title"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
