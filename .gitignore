@@ -1,31 +1,36 @@
-*.class
+*#JDEVADF_*
+*.DS_Store
+*.bak
+*.cdi
+*.client_contrib
+*.contrib*
+*.generated.java
+*.ignore
+*.keep
+*.labellog.emd
+*.mv.*
+*.rename.*
+*.rvi
+*.saved.*
+*.scc
+*.sync.*
+*.unbranch.*
+*.unco.*
+*.unmkelem.*
+*~
+.#*
+.*.cs
+.ade_path
+.data
+.depprod
+.depprod_nt
+.do_pool
+.fullsource
+.fullsource_nt
+.svn
+CVS
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-#ADF typical ignores
-**/.data/**
-**/classes/**
-**/deploy/**
-**/target/**
-**/.adf/**
-**/cwallet.sso*
-**/connections.xml
-**/*.adfc_diagram
-
-#mac os specific
-.DS_Store
-
-#general development
-**/*.log
-**/temp/**
-/.data/
-**/.cache.ser
+*.log
+*.tmp
+tmp
+classes
