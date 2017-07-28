@@ -11,15 +11,18 @@
                         <af:outputText value="MusicBrainz Test" id="ot1" inlineStyle="font-size:x-large;"/>
                     </af:gridCell>
                 </af:gridRow>
-                <af:gridRow height="150px" id="gr2">
+                <af:gridRow height="100px" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                         <af:panelFormLayout id="pfl1">
-                            <af:inputText value="#{bindings.query.inputValue}" label="Song title" required="#{bindings.query.hints.mandatory}"
-                                          columns="#{bindings.query.hints.displayWidth}" maximumLength="#{bindings.query.hints.precision}"
+                            <af:inputText value="#{bindings.query.inputValue}" label="Song title"
+                                          required="#{bindings.query.hints.mandatory}"
+                                          columns="#{bindings.query.hints.displayWidth}"
+                                          maximumLength="#{bindings.query.hints.precision}"
                                           shortDesc="#{bindings.query.hints.tooltip}" id="it1">
                                 <f:validator binding="#{bindings.query.validator}"/>
                             </af:inputText>
-                            <af:button actionListener="#{bindings.recording.execute}" text="Search" disabled="#{!bindings.recording.enabled}" id="b1"/>
+                            <af:button actionListener="#{bindings.recording.execute}" text="Search"
+                                       disabled="#{!bindings.recording.enabled}" id="b1"/>
                         </af:panelFormLayout>
                     </af:gridCell>
                 </af:gridRow>
@@ -27,24 +30,35 @@
                     <af:gridCell id="gc3">
                         <af:panelGroupLayout layout="vertical" id="pgl2">
                             <af:panelHeader text="Found recordings" id="ph1">
-                                <af:table value="#{bindings.recordings.collectionModel}" var="row" rows="#{bindings.recordings.rangeSize}"
-                                          emptyText="#{bindings.recordings.viewable ? 'No data to display.' : 'Access Denied.'}" rowBandingInterval="0"
+                                <af:table value="#{bindings.recordings.collectionModel}" var="row"
+                                          rows="#{bindings.recordings.rangeSize}"
+                                          emptyText="#{bindings.recordings.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
                                           selectedRowKeys="#{bindings.recordings.collectionModel.selectedRow}"
-                                          selectionListener="#{bindings.recordings.collectionModel.makeCurrent}" rowSelection="single"
-                                          fetchSize="#{bindings.recordings.rangeSize}" id="t1" columnStretching="last">
-                                    <af:column sortProperty="#{bindings.recordings.hints.id.name}" sortable="true"
+                                          selectionListener="#{bindings.recordings.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.recordings.rangeSize}" id="t1"
+                                          columnStretching="last">
+                                    <af:column sortProperty="ID" sortable="true"
                                                headerText="#{bindings.recordings.hints.id.label}" id="c3">
-                                        <af:outputText value="#{row.id}" shortDesc="#{bindings.recordings.hints.id.tooltip}" id="ot4"/>
+                                        <af:outputText value="#{row.id}"
+                                                       shortDesc="#{bindings.recordings.hints.id.tooltip}" id="ot4"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.recordings.hints.title.name}" sortable="true"
+                                    <af:column sortProperty="Title" sortable="true"
                                                headerText="#{bindings.recordings.hints.title.label}" id="c5">
-                                        <af:outputText value="#{row.title}" shortDesc="#{bindings.recordings.hints.title.tooltip}" id="ot6"/>
+                                        <af:outputText value="#{row.title}"
+                                                       shortDesc="#{bindings.recordings.hints.title.tooltip}" id="ot6"/>
                                     </af:column>
                                     <af:column sortable="false" headerText="Artist" id="c4">
                                         <af:iterator id="i1" value="#{row.artist_credit}" var="artists">
-                                            <af:iterator id="i2" value="#{artists.artist}" var="art" varStatus="artStat">
+                                            <af:iterator id="i2" value="#{artists.artist}" var="art"
+                                                         varStatus="artStat">
                                                 <af:outputText value="#{art.name}#{artists.joinphrase}" id="ot5"/>
                                             </af:iterator>
+                                        </af:iterator>
+                                    </af:column>
+                                    <af:column headerText="Album" id="c1">
+                                        <af:iterator id="it3" value="#{row.releases}" var="album">
+                                            <af:outputText value="#{album.title}" id="ot2"/>
                                         </af:iterator>
                                     </af:column>
                                 </af:table>
