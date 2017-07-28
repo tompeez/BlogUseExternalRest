@@ -37,18 +37,18 @@
                                           selectedRowKeys="#{bindings.recordings.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.recordings.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.recordings.rangeSize}" id="t1"
-                                          columnStretching="last">
+                                          columnStretching="last" summary="Result Table">
                                     <af:column sortProperty="ID" sortable="true"
-                                               headerText="#{bindings.recordings.hints.id.label}" id="c3">
+                                               headerText="#{bindings.recordings.hints.id.label}" id="c3" width="250">
                                         <af:outputText value="#{row.id}"
                                                        shortDesc="#{bindings.recordings.hints.id.tooltip}" id="ot4"/>
                                     </af:column>
                                     <af:column sortProperty="Title" sortable="true"
-                                               headerText="#{bindings.recordings.hints.title.label}" id="c5">
+                                               headerText="#{bindings.recordings.hints.title.label}" id="c5" width="250">
                                         <af:outputText value="#{row.title}"
                                                        shortDesc="#{bindings.recordings.hints.title.tooltip}" id="ot6"/>
                                     </af:column>
-                                    <af:column sortable="false" headerText="Artist" id="c4">
+                                    <af:column sortable="false" headerText="Artist" id="c4" width="250">
                                         <af:iterator id="i1" value="#{row.artist_credit}" var="artists">
                                             <af:iterator id="i2" value="#{artists.artist}" var="art"
                                                          varStatus="artStat">
