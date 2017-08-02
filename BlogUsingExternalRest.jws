@@ -30,7 +30,6 @@
    <list n="listOfChildren">
       <hash><url n="URL" path="BUERModel/BUERModel.jpr"/></hash>
       <hash><url n="URL" path="BUERMusicBrainsJSONRest/BUERMusicBrainsJSONRest.jpr"/></hash>
-      <hash><url n="URL" path="BUERMusicBrainzREST/BUERMusicBrainzREST.jpr"/></hash>
       <hash><url n="URL" path="BUERViewController/BUERViewController.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
