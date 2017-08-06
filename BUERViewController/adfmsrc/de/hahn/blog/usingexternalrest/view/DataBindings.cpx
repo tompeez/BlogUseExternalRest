@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="de.hahn.blog.usingexternalrest.view" ClientType="Generic">
+  <pageMap>
+    <page path="/MunicBrainz.jsf" usageId="de_hahn_blog_usingexternalrest_view_MunicBrainzPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="de_hahn_blog_usingexternalrest_view_MunicBrainzPageDef"
+          path="de.hahn.blog.usingexternalrest.view.pageDefs.MunicBrainzPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="MusicBrainzJSONDC" path="de.hahn.blog.usingexternalrest.MusicBrainzJSONDC"/>
+    <dc id="MusicBrainz" path="de.hahn.blog.usingexternalrest.musicbrainz.MusicBrainz"/>
+  </dataControlUsages>
+</Application>
