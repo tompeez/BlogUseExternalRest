@@ -1,0 +1,12 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="MusikBrainz" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="MusikBrainz">
+        <Contents>
+          <restconnection name="MusikBrainz" url="https://musicbrainz.org"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

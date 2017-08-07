@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="MunicBrainz.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" defaultCommand="b1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="MusicBrainz Test" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.query.inputValue}" label="Song title"
+                                          required="#{bindings.query.hints.mandatory}"
+                                          columns="#{bindings.query.hints.displayWidth}"
+                                          maximumLength="#{bindings.query.hints.precision}"
+                                          shortDesc="#{bindings.query.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.query.validator}"/>
+                            </af:inputText>
+                            <af:button actionListener="#{bindings.recording.execute}" text="Search"
+                                       disabled="#{!bindings.recording.enabled}" id="b1"/>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow id="gr3">
+                    <af:gridCell id="gc3">
+                        <af:panelGroupLayout layout="vertical" id="pgl2">
+                            <af:panelHeader text="Found recordings" id="ph1">
+                                <af:table value="#{bindings.recordings.collectionModel}" var="row"
+                                          rows="#{bindings.recordings.rangeSize}"
+                                          emptyText="#{bindings.recordings.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.recordings.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.recordings.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.recordings.rangeSize}" id="t1"
+                                          columnStretching="last" summary="Result Table">
+                                    <af:column sortProperty="ID" sortable="true"
+                                               headerText="#{bindings.recordings.hints.id.label}" id="c3" width="250">
+                                        <af:outputText value="#{row.id}"
+                                                       shortDesc="#{bindings.recordings.hints.id.tooltip}" id="ot4"/>
+                                    </af:column>
+                                    <af:column sortProperty="Title" sortable="true"
+                                               headerText="#{bindings.recordings.hints.title.label}" id="c5" width="250">
+                                        <af:outputText value="#{row.title}"
+                                                       shortDesc="#{bindings.recordings.hints.title.tooltip}" id="ot6"/>
+                                    </af:column>
+                                    <af:column sortable="false" headerText="Artist" id="c4" width="250">
+                                        <af:iterator id="i1" value="#{row.artist_credit}" var="artists">
+                                            <af:iterator id="i2" value="#{artists.artist}" var="art"
+                                                         varStatus="artStat">
+                                                <af:outputText value="#{art.name}#{artists.joinphrase}" id="ot5"/>
+                                            </af:iterator>
+                                        </af:iterator>
+                                    </af:column>
+                                    <af:column headerText="Album" id="c1">
+                                        <af:iterator id="it3" value="#{row.releases}" var="album">
+                                            <af:outputText value="#{album.title}" id="ot2"/>
+                                        </af:iterator>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
