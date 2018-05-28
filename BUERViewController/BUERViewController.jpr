@@ -99,6 +99,7 @@
          <string v="ADF_FACES"/>
          <string v="ADFc"/>
          <string v="ADFm"/>
+         <string v="Ant"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -191,8 +192,8 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="BlogUsingExternalRest-BUERViewController-webapp"/>
-      <value n="j2eeWebContextRoot" v="BlogUsingExternalRest-BUERViewController-context-root"/>
+      <value n="j2eeWebAppName" v="BlogUsingExternalRest-webapp"/>
+      <value n="j2eeWebContextRoot" v="BlogUsingExternalRest"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
